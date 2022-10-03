@@ -1,7 +1,7 @@
 import { GUI } from 'three/examples/jsm/libs/dat.gui.module.js'
 import * as THREE from 'three'
 
-export function debug(sunLight, ambient, scene) {
+export function debug(sunLight, ambient, scene, camera) {
 	
 	const gui = new GUI()
 

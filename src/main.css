@@ -1,6 +1,52 @@
 body, html {
+	position: absolute;
 	margin: 0;
 	padding: 0;
 	overscroll-behavior: none;
 	overflow: hidden;
+	z-index: 0;
 }
+
+.container {
+	position: absolute;
+	z-index: 10;
+	font-family: arial;
+	font-size: 24px;
+	margin: 25px;
+	width: 350px;
+	height: 200px;
+	outline: dashed 1px rgb(255, 255, 255);
+	background-color: rgb(255, 255, 255);
+	 /* Center child horizontally*/
+	 display: flex;
+	 justify-content: center;
+}
+
+p {
+	/* Center horizontally*/
+	text-align: center;
+  }
+
+  .vertical-menu {
+	position: absolute;
+	width: 200px; /* Set a width if you like */
+	margin: 25px;
+	height: 200px;
+  }
+
+  .vertical-menu a {
+	background-color: #eee; /* Grey background color */
+	color: black; /* Black text color */
+	display: block; /* Make the links appear below each other */
+	padding: 12px; /* Add some padding */
+	text-decoration: none; /* Remove underline from links */
+  }
+
+  .vertical-menu a:hover {
+	background-color: #ccc; /* Dark grey background on mouse-over */
+  }
+  
+  .vertical-menu a.active {
+	background-color: #04AA6D; /* Add a green color to the "active/current" link */
+	color: white;
+  }

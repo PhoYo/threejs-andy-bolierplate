@@ -9,6 +9,8 @@ import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
 
 import { debug } from './debug'
 
+import 'animate.css';
+
 /////////////////////////////////////////////////////////////////////////
 //// DRACO LOADER TO LOAD DRACO COMPRESSED MODELS FROM BLENDER
 const dracoLoader = new DRACOLoader()
@@ -93,6 +95,24 @@ function introAnimation() {
 
 introAnimation() // call intro animation on start
 
+
+function moveCameraToPosition(x,y,z) {
+    controls.enabled = false //disable orbit controls to animate the camera
+    
+    new TWEEN.Tween(camera.position).to({ // from camera position
+        x: x, //desired x position to go
+        y: y, //desired y position to go
+        z: z //desired z position to go
+    }, 2000) // time take to animate
+    .delay(0).easing(TWEEN.Easing.Quartic.InOut).start() // define delay, easing
+    .onComplete(function () { //on finish animation
+        controls.enabled = true //enable orbit controls
+        setOrbitControlsLimits() //enable controls limits
+        TWEEN.remove(this) // remove the animation from memory
+    })
+    
+}
+
 /////////////////////////////////////////////////////////////////////////
 //// DEFINE ORBIT CONTROLS LIMITS
 function setOrbitControlsLimits(){
@@ -104,6 +124,17 @@ function setOrbitControlsLimits(){
     controls.enableZoom = true
     controls.maxPolarAngle = Math.PI /2.5
 }
+
+/////////////////////////////////////////////////////////////////////////
+//// HTML MENU
+document.getElementById("link1").onclick = function() {myFunction()};
+
+function myFunction() {
+  console.log("link 1 pressed")
+  moveCameraToPosition(29,18,-39)
+}
+
+
 
 /////////////////////////////////////////////////////////////////////////
 //// RENDER LOOP FUNCTION
@@ -121,4 +152,4 @@ function rendeLoop() {
 
 rendeLoop() //start rendering
 
-debug(sunLight, ambient, scene) // start debug
+debug(sunLight, ambient, scene, camera) // start debug
