@@ -7,21 +7,6 @@ body, html {
 	z-index: 0;
 }
 
-.container {
-	position: absolute;
-	z-index: 10;
-	font-family: arial;
-	font-size: 24px;
-	margin: 25px;
-	width: 350px;
-	height: 200px;
-	outline: dashed 1px rgb(255, 255, 255);
-	background-color: rgb(255, 255, 255);
-	 /* Center child horizontally*/
-	 display: flex;
-	 justify-content: center;
-}
-
 p {
 	/* Center horizontally*/
 	text-align: center;

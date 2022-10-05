@@ -34,7 +34,7 @@ export function debug(sunLight, ambient, scene, camera) {
 	document.addEventListener('mousemove', (event) => {
 		event.preventDefault()
 
-		console.log(camera.position)
+		//console.log(camera.position)
 
 	}, false)
 
